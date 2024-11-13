@@ -19,13 +19,13 @@ import faq from '../assets/icons/faq.png';
 import solidarity from '../assets/icons/solidarity.png';
 import calendar from '../assets/icons/calendar.png';
 import man from '../assets/icons/man.png';
-import exp from '../assets/icons/expresion.png';
 
 //new images for the menu icons
 import covidicon from '../assets/icons/covidicon.png';
 import covidicon2 from '../assets/icons/covidicon2.png';
 import conocenosicon from '../assets/icons/conocenosicon.png';
 import sitiosicon from '../assets/icons/sitiosicon.png';
+import inducicon from '../assets/icons/man.png';
 
 import {
   selectButton
@@ -100,7 +100,7 @@ const HomeScreen = ({ navigation }) => {
               source={conocenosicon}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.textMorado}>Inducccion</Text>
+              <Text style={styles.textMorado}>Conocenos Más</Text>
               <Text style={styles.text2}>
                 Aqui puedes encontrar informacion de contacto, estamos a la
                 orden!
@@ -117,10 +117,10 @@ const HomeScreen = ({ navigation }) => {
             <Image
               style = {{width:100, height:100}}
               resizeMode = "contain"
-              source={exp}
+              source={suggestion}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.text}>Expresion corporal</Text>
+              <Text style={styles.text}>Sugerencias</Text>
               <Text style={styles.text2}>
                 Para seguir mejorando, puedes dejarnos cualquier duda o
                 inquietud!
@@ -140,7 +140,7 @@ const HomeScreen = ({ navigation }) => {
               source={faq}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.textYellow}>FAQ’s</Text>
+              <Text style={styles.textYellow}>Preguntas Frecuentes</Text>
               <Text style={styles.text2}>
                 Por si tienes alguna consulta para resolver de forma rápida!
               </Text>
@@ -162,6 +162,24 @@ const HomeScreen = ({ navigation }) => {
               <Text style={styles.textMorado}>Dinamicas</Text>
               <Text style={styles.text2}>
                 Si deseas profundizar un poco más en otros temas relevantes
+              </Text>
+            </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPressIn={selectButton}
+          onPress={() => {
+            navigation.navigate('Induc');
+          }}
+          style={{ ...styles.cardContainer}}>
+            <Image
+              style = {{width:100, height:100}}
+              resizeMode = "contain"
+              source={inducicon}
+            />
+            <View style={styles.textContainer}>
+              <Text style={styles.text}>Inducción</Text>
+              <Text style={styles.text2}>
+               ¡¡Bienvenido a la inducción!!
               </Text>
             </View>
         </TouchableOpacity>

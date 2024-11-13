@@ -16,6 +16,7 @@ import MissionAndVisionScreen from '../screens/MissionAndVisionScreen';
 import Search from '../screens/Search';
 import FAQScreen from '../screens/FAQScreen';
 import WebLinksScreen from '../screens/WebLinksScreen';
+import InducScreen from '../screens/InduccScreen';
 import CovidInfo from '../screens/CovidInfo';
 import Quiz from '../screens/Quiz';
 /**
@@ -185,6 +186,14 @@ export default function StackNavigation(props) {
       <Stack.Screen
         name="WebLinks"
         component={WebLinksScreen}
+        options={{
+          title: '',
+          headerLeft: () => buttonLeft(),
+        }}
+      />
+       <Stack.Screen
+        name="Induc"
+        component={InducScreen}
         options={{
           title: '',
           headerLeft: () => buttonLeft(),

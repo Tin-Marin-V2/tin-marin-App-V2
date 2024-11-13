@@ -78,6 +78,11 @@ const DrawerContent = (props) => {
           onPress={() => navigation.navigate('WebLinks')}
           icon="web"
         />
+          <Drawer.Item
+          label="Inducción"
+          onPress={() => navigation.navigate('Induc')}
+          icon="book-open-page-variant"
+        />
       </Drawer.Section>
     </DrawerContentScrollView>
   );
