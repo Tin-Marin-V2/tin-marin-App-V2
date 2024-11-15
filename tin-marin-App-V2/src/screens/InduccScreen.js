@@ -1,7 +1,7 @@
 import React  from 'react';
 import { StyleSheet,Text, View } from 'react-native';
-import Video from 'react-native-video';
-
+//import Video from 'react-native-video';
+/*
 zz
 const InducScreen =  ({ navigation }) => {
    
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         height:265,
     },
 });
-
+*/
 
 export default InducScreen;
