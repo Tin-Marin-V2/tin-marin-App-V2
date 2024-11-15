@@ -5,6 +5,7 @@ import {
   View,
   Image,
   TouchableOpacity,
+  Linking,
   Pressable,
 } from 'react-native';
 import { IconButton, Text, Title } from 'react-native-paper';
@@ -15,7 +16,7 @@ import { map, size } from 'lodash';
 import Colors from '../constants/Colors';
 import { SliderBox } from 'react-native-image-slider-box';
 import curiosidades1 from '../assets/icons/curiosidades1.png';
-import exam from '../assets/icons/exam.png';
+import exam from '../assets/youtube.png';
 
 import {
   wowButton,
@@ -65,6 +66,7 @@ const InfoCard = ({ route, navigation }) => {
 
   const imageURL = exhibition.images;
   const [logoURL] = exhibition.sponsorLogo;
+  const yUrl=exhibition.url;
 
 
   return (
@@ -80,7 +82,7 @@ const InfoCard = ({ route, navigation }) => {
           <TouchableOpacity
             onPressIn={quizButton}
             onPress={() => {
-              navigation.navigate('quiz', questions);
+              Linking.openURL(yUrl);
             }}
           >
             <Image style={styles.imgQuiz} resizeMode="contain" source={exam} />
