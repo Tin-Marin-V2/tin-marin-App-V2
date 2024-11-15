@@ -1,10 +1,9 @@
 import React  from 'react';
 import { StyleSheet,Text, View } from 'react-native';
-//import Video from 'react-native-video';
-/*
-zz
+
+
 const InducScreen =  ({ navigation }) => {
-   
+   /*
     return(
         <View style={StyleSheet.container}>
           <Video 
@@ -18,12 +17,12 @@ const InducScreen =  ({ navigation }) => {
                muted={true}
           />              
         </View>
-    );
+    );*/
   
 
 };
 
-
+/*
 const styles = StyleSheet.create({
     container:{
         backgroundColor:'#F0EFEC',
