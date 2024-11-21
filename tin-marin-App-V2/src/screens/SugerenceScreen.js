@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import {
   StyleSheet,
-  Text,
   View,
+  Text,
   ScrollView,
-  Image,
-  TouchableOpacity,
-  Alert,
+  ActivityIndicator,
 } from 'react-native';
-import SugerenceCard from '../components/SugerenceCard';
-import Colors from '../constants/Colors';
-import { Picker } from '@react-native-picker/picker';
-import { getAllSuperenceTypes, storeSugerence } from '../api/sugerences';
+import ListItem from '../components/ListItem'; // Importa el nuevo componente de lista
+//import { getAllLinks } from '../api/weblinks';
+import { LogBox } from 'react-native';
+import { size } from 'lodash';
+
+LogBox.ignoreAllLogs();
+import { getAllSuperenceTypes } from '../api/sugerences';
 
 /**
  * Pantalla que muestra el formulario de sugerencias, para poder enviar un mensaje a la entidad.
@@ -46,151 +47,72 @@ import { getAllSuperenceTypes, storeSugerence } from '../api/sugerences';
  * @return {ScrollView} Regresa una layout con scroll vertical, y muestra la maquetación de la pantalla.
  */
 const SugerenceScreen = ({ navigation }) => {
-  // OBTIENE DATA, ES UNA COLLECCION
-  const [sugerenceTypes, setSugerenceTypes] = useState([]);
-  //GUARDA EN FORMULARIO ES UNICA
-  const [sugerenceType, setSugerenceType] = useState('');
+ const [links, setlinks] = useState([]);
+   const [loading, setLoading] = useState(true);
+   const [fetched, setFetched] = useState(false);
 
-  const [comment, setComment] = useState('');
+   useEffect(() => {
+     const abortController = new AbortController();
+     const signal = abortController.signal;
+     getAllSuperenceTypes(signal).then((response) => {
+       setlinks(response);
+       setLoading(false);
+       setFetched(true);
+     });
 
-  const [error, setError] = useState('');
+     if (fetched) abortController.abort();
+   }, []);
 
-  useEffect(() => {
-    getAllSuperenceTypes().then((response) => {
-      setSugerenceTypes(response);
-    });
-  }, []);
+   return (
+     <ScrollView showsVerticalScrollIndicator={true}>
+       {loading ? (
+         <ActivityIndicator
+           style={{
+             marginTop: 200,
+           }}
+           size="large"
+           color="#0000ff"
+         />
+       ) : size(links) === 0 ? (
+         <Text style={styles.text}>No se encontraron Expresiones</Text>
+       ) : (
+         <View style={styles.view}>
+         <Text style={styles.title}>Expresiones</Text>
+           {links.map((link, key) => (
+             <ListItem
+               key={key}
+               title={link.title}
+               icon="https://img.icons8.com/?size=100&id=3vUMRam79GLa&format=png&color=000000" // Usa una URL de ícono
+               //https://img.icons8.com/color/48/000000/bookmark.png
+               url={link.url}
 
-  const handleComment = (comment) => {
-    // console.log(`Guardando texto: ${comment}`);
-    setComment(comment);
-  };
+             />
+           ))}
+         </View>
+       )}
+     </ScrollView>
+   );
+ };
 
-  const handleSend = () => {
-    if (comment === '' || sugerenceType === '') {
-      setError('Por favor, Ingrese un mensaje');
-      // console.log(sugerenceType);
-    } else {
-      storeSugerence(sugerenceType, comment).then((response) => {
-        // console.log(`Respuesta del server: ${response.status}`);
-        Alert.alert('Se envió tu Sugerencia con Éxito!!!');
-        setComment('');
-      });
-    }
-  };
-
-  return (
-    <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
-      <View style={styles.view}>
-        <Text style={styles.title}>Expresión</Text>
-        <View style={styles.line}></View>
-        <View style={styles.containerlogo}>
-          <Image
-            style={styles.Logo}
-            source={require('../assets/logoTinMarin.png')}
-          />
-        </View>
-        <View style={styles.pickerContainer}>
-          <Picker
-            style={styles.picker}
-            mode="dropdown"
-            selectedValue={sugerenceType}
-            onValueChange={(itemValue, itemPosition) => {
-              setSugerenceType(itemValue);
-            }}>
-            {sugerenceTypes.map((sugerenceType, key) => (
-              <Picker.Item
-                key={key}
-                label={sugerenceType.name}
-                value={sugerenceType.name}
-              />
-            ))}
-          </Picker>
-        </View>
-      </View>
-      <SugerenceCard
-        sugerenceType={sugerenceType}
-        color={Colors.blueColor}
-        comment={comment}
-        onCommentChange={handleComment}
-      />
-      <View style={styles.view}>
-        <TouchableOpacity onPress={() => handleSend()} style={styles.button}>
-          <Text style={styles.buttonText}> Enviar! </Text>
-        </TouchableOpacity>
-      </View>
-    </ScrollView>
-  );
-};
-
-/**
- * @ignore
- */
-const styles = StyleSheet.create({
-  pickerContainer: {
-    flexDirection: 'row',
-    borderRadius: 15,
-    borderWidth: 1,
-    borderColor: '#d1d3e2',
-    overflow: 'hidden',
-  },
-  picker: {
-    height: 50,
-    width: '100%',
-    backgroundColor: '#858796',
-    color: 'white',
-  },
-  pickerItem: {
-    height: 100,
-    width: 500,
-    width: '100%',
-  },
-  view: {
-    flexDirection: 'column',
-    alignItems: 'center',
-  },
-  button: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#e74a3b',
-    marginBottom: 100,
-    height: 55,
-    width: '60%',
-    borderRadius: 10,
-  },
-  buttonText: {
-    fontFamily: 'NunitoSans-Bold',
-    color: '#fff',
-    fontWeight: 'bold',
-  },
-  title: {
-    fontFamily: 'NunitoSans-Bold',
-    fontSize: 30,
-    color: '#566573',
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-  line: {
-    height: 1,
-    width: '90%',
-    backgroundColor: '#D5D8DC',
-  },
-  Logo: {
-    width: 300,
-    height: 200,
-  },
-  containerlogo: {
-    alignItems: 'center',
-    paddingHorizontal: 15,
-    paddingVertical: 30,
-  },
-  container: {
-    flex: 1,
-    padding: 24,
-    backgroundColor: '#ffffff',
-  },
-});
+ const styles = StyleSheet.create({
+   view: {
+     flex: 1, // Permite que el View ocupe todo el espacio disponible
+     paddingBottom: 30,
+   },
+   title: {
+       fontFamily: 'NunitoSans-Bold',
+       marginTop: 20,
+       marginBottom: 20,
+       fontSize: 30,
+       color: '#566573',
+       textAlign: 'center',
+   },
+   text: {
+     fontFamily: 'NunitoSans-Bold',
+     textAlign: 'center',
+     fontSize: 20,
+     color: 'gray',
+   },
+ });
 
 export default SugerenceScreen;

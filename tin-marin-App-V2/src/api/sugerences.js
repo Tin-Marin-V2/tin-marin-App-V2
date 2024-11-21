@@ -10,9 +10,10 @@ import { API_DEV, API_HOST } from '../constants/URL';
  * @example getAllSuperenceTypes()
  * .then((response) => {...});
  */
-export const getAllSuperenceTypes = () => {
-  const url = `${API_HOST}/suggestiontypes`;
-  return fetch(url)
+export const getAllSuperenceTypes = (signal) => {
+  const url = `${API_HOST}/expressions`;
+
+  return fetch(url, { signal: signal })
     .then((response) => response.json())
     .then((result) => result);
 };
@@ -29,7 +30,7 @@ export const getAllSuperenceTypes = () => {
  * @example storeSugerence(sugerenceType, comment)
  * .then((response) => {...});
  */
-export const storeSugerence = (suggestionType, suggestion) => {
+/*export const storeSugerence = (suggestionType, suggestion) => {
   const url = `${API_HOST}/suggestions`;
   return fetch(url, {
     method: 'POST',
@@ -41,4 +42,4 @@ export const storeSugerence = (suggestionType, suggestion) => {
       suggestion,
     }),
   });
-};
+};*/
