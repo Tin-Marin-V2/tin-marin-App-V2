@@ -82,7 +82,7 @@ const SugerenceScreen = ({ navigation }) => {
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={true}>
       <View style={styles.view}>
-        <Text style={styles.title}>Sugerencias O Comentarios</Text>
+        <Text style={styles.title}>Expresión</Text>
         <View style={styles.line}></View>
         <View style={styles.containerlogo}>
           <Image
