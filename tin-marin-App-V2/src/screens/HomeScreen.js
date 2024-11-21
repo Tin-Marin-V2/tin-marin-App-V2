@@ -14,7 +14,7 @@ import {
 //new image imports for the new menu design
 import playground from '../assets/icons/playground.png';
 import newnormality from '../assets/icons/newnormality.png';
-import suggestion from '../assets/icons/suggestion.png';
+import expression from '../assets/icons/expression.png';
 import faq from '../assets/icons/faq.png';
 import solidarity from '../assets/icons/solidarity.png';
 import calendar from '../assets/icons/calendar.png';
@@ -117,13 +117,13 @@ const HomeScreen = ({ navigation }) => {
             <Image
               style = {{width:100, height:100}}
               resizeMode = "contain"
-              source={suggestion}
+              source={expression}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.text}>Sugerencias</Text>
+              <Text style={styles.text}>Expresión</Text>
               <Text style={styles.text2}>
-                Para seguir mejorando, puedes dejarnos cualquier duda o
-                inquietud!
+                Encuentra contenido para seguir mejorando tus expresiones
+                faciales y corporales
               </Text>
             </View>
         </TouchableOpacity>
