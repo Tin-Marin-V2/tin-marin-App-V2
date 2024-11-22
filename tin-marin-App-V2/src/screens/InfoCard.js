@@ -6,8 +6,10 @@ import {
   Image,
   TouchableOpacity,
   Linking,
+  Platform,
   Pressable,
 } from 'react-native';
+
 import { IconButton, Text, Title } from 'react-native-paper';
 import { getExhibitionById } from '../api/exhibitions';
 import ModalBody from '../components/ModalBody';
@@ -18,9 +20,12 @@ import { SliderBox } from 'react-native-image-slider-box';
 import curiosidades1 from '../assets/icons/curiosidades1.png';
 import exam from '../assets/youtube.png';
 
+import RNFetchBlob from 'rn-fetch-blob';
+import { downloadFile, getDownloadPermissionAndroid} from '../helpers/download';
+
 import {
   wowButton,
-  quizButton
+  quizButton,
 } from '../helpers/audio';
 
 /**
@@ -67,9 +72,11 @@ const InfoCard = ({ route, navigation }) => {
   const imageURL = exhibition.images;
   const [logoURL] = exhibition.sponsorLogo;
   const yUrl=exhibition.url;
+  const fileUrlE=exhibition.pdf_es;
+  const fileUrlI=exhibition.pdf_in;
 
-
-  return (
+  
+    return (
     <SafeAreaView >
       <ScrollView showsVerticalScrollIndicator={false}>
         <InfoTitle exhibition={exhibition} />
@@ -86,8 +93,10 @@ const InfoCard = ({ route, navigation }) => {
             }}
           >
             <Image style={styles.imgQuiz} resizeMode="contain" source={exam} />
-          </TouchableOpacity>
+           
+          </TouchableOpacity>    
         </View>
+        <DownloadFile fileUrlE={fileUrlE} fileUrlI={fileUrlI}/>
         <InfoFooter exhibition={exhibition} />
       </ScrollView>
 
@@ -101,6 +110,7 @@ const InfoCard = ({ route, navigation }) => {
 };
 
 export default InfoCard;
+
 
 /**
  *@ignore
@@ -130,6 +140,39 @@ const InfoImage = ({ path }) => {
     />
   );
 };
+
+
+/**
+ * @ignore
+ */
+const DownloadFile = ({fileUrlE,fileUrlI})=>{
+  return (
+    <SafeAreaView>
+      {fileUrlE?(
+        <TouchableOpacity
+        style={[styles.btnStyle]}
+        onPress={() => {
+          Linking.openURL(fileUrlE);
+          }
+        }>
+         
+       <Text style={styles.textStyle}>Documento en Español</Text>
+        </TouchableOpacity>
+      ):(console.log("vacio"))}
+      {fileUrlI?(
+        <TouchableOpacity
+        style={[styles.btnStyle]}
+        onPress={() => {
+          Linking.openURL(fileUrlI);
+          }
+        }>
+       <Text style={styles.textStyle}>Documento en Ingles</Text>
+        </TouchableOpacity>
+      ):(console.log("vacio"))}
+    </SafeAreaView>
+  );
+};
+
 
 /**
  *@ignore
@@ -359,5 +402,25 @@ const styles = StyleSheet.create({
   dot: {
     margin: 3,
     color: 'white',
+  },
+  titleText: {
+    textAlign: 'center',
+    marginVertical: 20,
+    marginHorizontal: 15,
+  },
+  textStyle: {
+    color: 'white',
+    fontSize: 14,
+    paddingHorizontal: 25,
+  },
+  btnStyle: {
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    borderRadius: 10,
+    margin:10,
+    width: 210,
+    height: 40,
   },
 });

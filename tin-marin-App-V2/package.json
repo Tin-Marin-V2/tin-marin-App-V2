@@ -37,6 +37,7 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-unordered-list": "^1.0.4",
     "react-native-vector-icons": "^7.1.0",
+    "rn-fetch-blob": "^0.12.0",
     "sweetalert2": "^10.13.0"
   },
   "devDependencies": {
