@@ -8,7 +8,7 @@ import ExhibitsScrn from '../screens/ExhibitsScreen';
 import EventsScreen from '../screens/EventsScreen';
 import CovidScreen from '../screens/CovidScreen';
 import ContactScreen from '../screens/ContactScreen';
-import SugerenceScreen from '../screens/SugerenceScreen';
+import SugerenceScreen from '../screens/ExpressionScreen';
 import DonationScreen from '../screens/DonationScreen';
 import InfoCard from '../screens/InfoCard';
 import KnowMoreScreen from '../screens/KnowMoreScreen';

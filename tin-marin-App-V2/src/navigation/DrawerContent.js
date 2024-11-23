@@ -49,17 +49,12 @@ const DrawerContent = (props) => {
                     icon="gift"
                 /> */}
         <Drawer.Item
-          label="Recomendaciones Covid-19"
+          label="Salvaguarda"
           onPress={() => navigation.navigate('covid')}
           icon="virus"
         />
         <Drawer.Item
-          label="Conócenos Más"
-          onPress={() => navigation.navigate('knowMore')}
-          icon="card-account-mail"
-        />
-        <Drawer.Item
-          label="Sugerencias"
+          label="Expresiones"
           onPress={() => navigation.navigate('comments')}
           icon="email-alert"
         />
@@ -74,7 +69,7 @@ const DrawerContent = (props) => {
           icon="frequently-asked-questions"
         />
         <Drawer.Item
-          label="Sitios de Interés"
+          label="Dinamicas de traslado"
           onPress={() => navigation.navigate('WebLinks')}
           icon="web"
         />

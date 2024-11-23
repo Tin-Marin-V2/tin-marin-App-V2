@@ -2,6 +2,7 @@ import React  from 'react';
 import { StyleSheet, Linking, View, TouchableOpacity, } from 'react-native';
 import { IconButton, Text, Title } from 'react-native-paper';
 import Colors from '../constants/Colors';
+import ListItem from '../components/ListItem'; // Importa el nuevo componente de lista
 
 /**
 *@param {prop} route
@@ -19,32 +20,27 @@ const InducScreen =  ({ navigation }) => {
    return(
         <View style={styles.view}>
           <Text style={styles.title}>Inducción Contenido</Text>
-        
-        <TouchableOpacity
-                  style={[styles.btnStyle]}
-                  onPress={() => {
-                    Linking.openURL(guide);
-                    }
-                  }>         
-              <Text style={styles.textStyle}>En los pies de un guia </Text>
-          </TouchableOpacity>     
-          <TouchableOpacity
-                  style={[styles.btnStyle]}
-                  onPress={() => {
-                    Linking.openURL(induccion);
-                    }
-                  }>         
-              <Text style={styles.textStyle}>Inducción del programa </Text>
-          </TouchableOpacity>     
-          <TouchableOpacity
-                  style={[styles.btnStyle]}
-                  onPress={() => {
-                    Linking.openURL(doc);
-                    }
-                  }>         
-              <Text style={styles.textStyle}>Inducción Oficial </Text>
-          </TouchableOpacity>     
-                      
+         <ListItem
+           title="Inducción Oficial"
+           icon="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" // Usa una URL de ícono
+           //https://img.icons8.com/color/48/000000/bookmark.png
+           url={doc}
+            />
+
+        <ListItem
+          title="En los pies de un guia"
+          icon="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" // Usa una URL de ícono
+          //https://img.icons8.com/color/48/000000/bookmark.png
+          url={guide}
+           />
+
+       <ListItem
+         title="Inducción del programa"
+         icon="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" // Usa una URL de ícono
+         //https://img.icons8.com/color/48/000000/bookmark.png
+         url={induccion}
+          />
+
         </View>
     );
   

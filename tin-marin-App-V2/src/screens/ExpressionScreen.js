@@ -77,7 +77,8 @@ const SugerenceScreen = ({ navigation }) => {
          <Text style={styles.text}>No se encontraron Expresiones</Text>
        ) : (
          <View style={styles.view}>
-         <Text style={styles.title}>Expresiones</Text>
+         <Text style={styles.title}>Expresiones
+         </Text>
            {links.map((link, key) => (
              <ListItem
                key={key}
