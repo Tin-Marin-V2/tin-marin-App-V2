@@ -78,7 +78,7 @@ const HomeScreen = ({ navigation }) => {
             <Image
               style = {{width:100, height:100}}
               resizeMode = "contain"
-              source={covidicon2}
+              source={conocenosicon}
             />
             <View style={styles.textContainer}>
               <Text style={styles.textYellow}>Salvaguarda</Text>
@@ -91,42 +91,41 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity
           onPressIn={selectButton}
           onPress={() => {
-            navigation.navigate('knowMore');
+            navigation.navigate('Induc');
           }}
-          style={styles.cardContainer}>
+          style={{ ...styles.cardContainer}}>
             <Image
               style = {{width:100, height:100}}
               resizeMode = "contain"
-              source={conocenosicon}
+              source={inducicon}
             />
             <View style={styles.textContainer}>
-              <Text style={styles.textMorado}>Conocenos Más</Text>
+              <Text style={styles.text}>Inducción</Text>
               <Text style={styles.text2}>
-                Aqui puedes encontrar informacion de contacto, estamos a la
-                orden!
+               ¡¡Bienvenido a la inducción!!
               </Text>
             </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPressIn={selectButton}
-          onPress={() => {
-            navigation.navigate('comments');
-          }}
-          style={styles.cardContainer}>
-            <Image
-              style = {{width:100, height:100}}
-              resizeMode = "contain"
-              source={expression}
-            />
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Expresión</Text>
-              <Text style={styles.text2}>
-                Encuentra contenido para seguir mejorando tus expresiones
-                faciales y corporales
-              </Text>
-            </View>
-        </TouchableOpacity>
+         <TouchableOpacity
+                  onPressIn={selectButton}
+                  onPress={() => {
+                    navigation.navigate('comments');
+                  }}
+                  style={styles.cardContainer}>
+                    <Image
+                      style = {{width:100, height:100}}
+                      resizeMode = "contain"
+                      source={expression}
+                    />
+                    <View style={styles.textContainer}>
+                      <Text style={styles.text}>Expresión</Text>
+                      <Text style={styles.text2}>
+                        Encuentra contenido para seguir mejorando tus expresiones
+                        faciales y corporales
+                      </Text>
+                    </View>
+         </TouchableOpacity>
 
         <TouchableOpacity
           onPressIn={selectButton}
@@ -165,25 +164,6 @@ const HomeScreen = ({ navigation }) => {
               </Text>
             </View>
         </TouchableOpacity>
-        <TouchableOpacity
-          onPressIn={selectButton}
-          onPress={() => {
-            navigation.navigate('Induc');
-          }}
-          style={{ ...styles.cardContainer}}>
-            <Image
-              style = {{width:100, height:100}}
-              resizeMode = "contain"
-              source={inducicon}
-            />
-            <View style={styles.textContainer}>
-              <Text style={styles.text}>Inducción</Text>
-              <Text style={styles.text2}>
-               ¡¡Bienvenido a la inducción!!
-              </Text>
-            </View>
-        </TouchableOpacity>
-
       </View>
     </ScrollView>
   );

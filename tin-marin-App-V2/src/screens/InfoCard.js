@@ -21,7 +21,6 @@ import curiosidades1 from '../assets/icons/curiosidades1.png';
 import exam from '../assets/youtube.png';
 
 import RNFetchBlob from 'rn-fetch-blob';
-import { downloadFile, getDownloadPermissionAndroid} from '../helpers/download';
 
 import {
   wowButton,
@@ -73,7 +72,9 @@ const InfoCard = ({ route, navigation }) => {
   const [logoURL] = exhibition.sponsorLogo;
   const yUrl=exhibition.url;
   const fileUrlE=exhibition.pdf_es;
-  const fileUrlI=exhibition.pdf_in;
+  const fileUrlI=exhibition.pdf_en;
+  const audioUrlE=exhibition.audio_es;
+  const audioUrlI=exhibition.audio_en;
 
   
     return (
@@ -83,7 +84,7 @@ const InfoCard = ({ route, navigation }) => {
         <InfoImage path={imageURL} />
         {logoURL && <InfoSponsor url={logoURL} />}
         <Text style={styles.overview}>{exhibition.description}</Text>
-        <Text style={styles.overview2}>Presiona el botón de la izquierda si quieres leer un dato curioso y presiona el de la derecha si quieres contestar preguntas:</Text>
+        <Text style={styles.overview2}>Presiona el botón de la izquierda si quieres leer un dato curioso y presiona el de la derecha si quieres ver el video de muestra:</Text>
         <View style={styles.btnCuriosidades}>
           <InfoModal setVisible={setVisible} />
           <TouchableOpacity
@@ -414,7 +415,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 25,
   },
   btnStyle: {
-    backgroundColor: 'black',
+    backgroundColor: '#F1BC00',
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
