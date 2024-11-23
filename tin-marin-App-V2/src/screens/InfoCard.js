@@ -97,7 +97,7 @@ const InfoCard = ({ route, navigation }) => {
            
           </TouchableOpacity>    
         </View>
-        <DownloadFile fileUrlE={fileUrlE} fileUrlI={fileUrlI}/>
+        <DownloadFile fileUrlE={fileUrlE} fileUrlI={fileUrlI} audioUrlE={audioUrlE} audioUrlI={audioUrlI}/>
         <InfoFooter exhibition={exhibition} />
       </ScrollView>
 
@@ -146,7 +146,7 @@ const InfoImage = ({ path }) => {
 /**
  * @ignore
  */
-const DownloadFile = ({fileUrlE,fileUrlI})=>{
+const DownloadFile = ({fileUrlE,fileUrlI,audioUrlE,audioUrlI})=>{
   return (
     <SafeAreaView>
       {fileUrlE?(
@@ -170,6 +170,28 @@ const DownloadFile = ({fileUrlE,fileUrlI})=>{
        <Text style={styles.textStyle}>Documento en Ingles</Text>
         </TouchableOpacity>
       ):(console.log("vacio"))}
+
+            {audioUrlE?(
+              <TouchableOpacity
+              style={[styles.btnStyle2]}
+              onPress={() => {
+                Linking.openURL(audioUrlE);
+                }
+              }>
+
+             <Text style={styles.textStyle}>Audio en Español</Text>
+              </TouchableOpacity>
+            ):(console.log("vacio"))}
+            {audioUrlI?(
+              <TouchableOpacity
+              style={[styles.btnStyle2]}
+              onPress={() => {
+                Linking.openURL(audioUrlI);
+                }
+              }>
+             <Text style={styles.textStyle}>Audio en Ingles</Text>
+              </TouchableOpacity>
+            ):(console.log("vacio"))}
     </SafeAreaView>
   );
 };
@@ -424,4 +446,14 @@ const styles = StyleSheet.create({
     width: 210,
     height: 40,
   },
+   btnStyle2: {
+      backgroundColor: '#B1CC4A',
+      justifyContent: 'center',
+      alignItems: 'center',
+      alignSelf: 'center',
+      borderRadius: 10,
+      margin:10,
+      width: 210,
+      height: 40,
+    }
 });

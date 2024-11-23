@@ -14,12 +14,12 @@ const InducScreen =  ({ navigation }) => {
    
   const guide="https://www.youtube.com/watch?v=VsjTbrmRkIs ";
   const induccion="https://www.youtube.com/watch?v=AqtzkW-QBTo";
-  const doc="https://tinmarin-my.sharepoint.com/:b:/r/personal/srafael_tinmarin_org/Documents/Informaci%C3%B3n%20para%20App%20Formativa%20Tin%20Marin/Dem%C3%A1s%20informaci%C3%B3n/Inducci%C3%B3n/Inducci%C3%B3n%20Oficial%202024%20PDF.pdf?csf=1&web=1&e=tJHhot";
+  const doc="https://drive.google.com/file/d/1CIvnpvGQXdTdL0-z172z1qyNPY3IuzKp/view?usp=drive_link";
 
 
    return(
         <View style={styles.view}>
-          <Text style={styles.title}>Inducción Contenido</Text>
+          <Text style={styles.title}>Inducción</Text>
          <ListItem
            title="Inducción Oficial"
            icon="https://img.freepik.com/vector-premium/icono-circulo-usuario-anonimo-ilustracion-vector-estilo-plano-sombra_520826-1931.jpg" // Usa una URL de ícono
@@ -53,7 +53,7 @@ const InducScreen =  ({ navigation }) => {
 const styles = StyleSheet.create({
   titleText: {
     textAlign: 'center',
-    marginVertical: 20,
+    marginVertical: 70,
     marginHorizontal: 15,
   },
   view: {
