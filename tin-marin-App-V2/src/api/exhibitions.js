@@ -10,7 +10,7 @@ import { API_HOST } from '../constants/URL';
  * @example getAllExhibitions()
  * .then((response) => {...});
  */
-export function getAllExhibitions() {
+export async function getAllExhibitions() {
   const url = `${API_HOST}/exhibitions`;
 
   return fetch(url)
@@ -32,7 +32,7 @@ export function getAllExhibitions() {
  * @example getExhibitionById('5ff944b427c7c600175674ef')
  * .then((response) => {...});
  */
-export function getExhibitionById(idExhibition) {
+export async function getExhibitionById(idExhibition) {
   const url = `${API_HOST}/exhibitions/${idExhibition}`;
 
   return fetch(url)
@@ -55,13 +55,13 @@ export function getExhibitionById(idExhibition) {
  * @example getExhibitionByName('El Avión')
  * .then((response) => {...});
  */
-export function getExhibitionByName(name) {
+export async function getExhibitionByName(name) {
   const url = `${API_HOST}/exhibitions/?name=${name}`;
 
   return fetch(url)
     .then((response) => {
       // console.log(response)
-      return response.json();
+      return response.json() ;
     })
     .then((result) => {
       // console.log(result)

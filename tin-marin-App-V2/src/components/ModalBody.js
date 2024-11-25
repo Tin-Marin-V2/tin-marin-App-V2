@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Text } from 'react-native';
 import { wowButton } from '../helpers/audio';
 import {
   Modal,
@@ -39,7 +39,7 @@ const ModalBody = ({ showModal, visible, curiousInfo }) => {
         </ModalFooter>
       }>
       <ModalContent  style = {styles.modalwWhole}>
-        <MContent curiousInfo={curiousInfo} />
+        <Text style={styles.text}>{curiousInfo}</Text>
       </ModalContent>
     </Modal>
   );

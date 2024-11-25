@@ -54,6 +54,7 @@ const HomeScreen = ({ navigation }) => {
         <TouchableOpacity
           onPressIn={selectButton}
           onPress={() => {
+
             navigation.navigate('exhibits');
           }}
           style={styles.cardContainer}>
