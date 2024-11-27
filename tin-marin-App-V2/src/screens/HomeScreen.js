@@ -66,7 +66,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.textContainer}>
               <Text style={styles.text}>Exhibiciones</Text>
               <Text style={styles.text2}>
-                Ven a conocer todas las exhibiciones disponibles
+                Únete a esta gran aventura y comparte la diversión con todos/as
               </Text>
             </View>
         </TouchableOpacity> 
@@ -84,7 +84,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.textContainer}>
               <Text style={styles.textYellow}>Salvaguarda</Text>
               <Text style={styles.text2}>
-                Toma en cuenta estas recomendaciones para venir al museo
+                Garanticemos el bienestar de la niñez
               </Text>
             </View>
         </TouchableOpacity>
@@ -103,7 +103,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.textContainer}>
               <Text style={styles.text}>Inducción</Text>
               <Text style={styles.text2}>
-               ¡¡Bienvenido a la inducción!!
+               Conoce mas sobre nuestra familia Tin Marín
               </Text>
             </View>
         </TouchableOpacity>
@@ -122,8 +122,7 @@ const HomeScreen = ({ navigation }) => {
                     <View style={styles.textContainer}>
                       <Text style={styles.text}>Expresión</Text>
                       <Text style={styles.text2}>
-                        Encuentra contenido para seguir mejorando tus expresiones
-                        faciales y corporales
+                        Todo comunica. Descubre mas herramientas para transformar tus ideas
                       </Text>
                     </View>
          </TouchableOpacity>
@@ -142,7 +141,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.textContainer}>
               <Text style={styles.textYellow}>Preguntas Frecuentes</Text>
               <Text style={styles.text2}>
-                Por si tienes alguna consulta para resolver de forma rápida!
+                ¿Dudas? entra y te apoyamos a despejarlas
               </Text>
             </View>
         </TouchableOpacity>
@@ -161,7 +160,7 @@ const HomeScreen = ({ navigation }) => {
             <View style={styles.textContainer}>
               <Text style={styles.textMorado}>Dinamicas</Text>
               <Text style={styles.text2}>
-                Si deseas profundizar un poco más en otros temas relevantes
+                Descubre ideas para hacer cada recorrido único e inolvidable
               </Text>
             </View>
         </TouchableOpacity>

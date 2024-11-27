@@ -51,12 +51,12 @@ const DrawerContent = (props) => {
         <Drawer.Item
           label="Salvaguarda"
           onPress={() => navigation.navigate('covid')}
-          icon="virus"
+          icon="account-child"
         />
         <Drawer.Item
           label="Expresiones"
           onPress={() => navigation.navigate('comments')}
-          icon="email-alert"
+          icon="emoticon-excited"
         />
         {/* <Drawer.Item
           label="Donaciones"
@@ -71,12 +71,12 @@ const DrawerContent = (props) => {
         <Drawer.Item
           label="Dinamicas de traslado"
           onPress={() => navigation.navigate('WebLinks')}
-          icon="web"
+          icon="kabaddi"
         />
           <Drawer.Item
           label="Inducción"
           onPress={() => navigation.navigate('Induc')}
-          icon="book-open-page-variant"
+          icon="head-cog"
         />
       </Drawer.Section>
     </DrawerContentScrollView>
