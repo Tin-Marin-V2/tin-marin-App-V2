@@ -86,7 +86,7 @@ export default function StackNavigation(props) {
         name="home"
         component={HomeScreen}
         options={{
-          title: '',
+          title: 'Yo dibujo 🙂 con 🧡 Tin Marín',
           headerLeft: () => buttonLeft(),
         }}
       />
